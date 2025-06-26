@@ -12,7 +12,7 @@ especial atenção à identificação correta de classes, atributos, métodos, a
 - Utilize o Git de forma adequada: commits frequentes, README.md informativo e .gitignore funcional. Lembrando que esse projeto depende da biblioteca algs4, portanto garanta que o seu .gitignore não ignore o arquivo.
 - Organize seus códigos-fonte em pacotes temáticos para fazer bom uso dos membros protegidos.
 - Para um exemplo de como capturar eventos do mouse e teclado usando a interface DrawListener, veja esse [repositório](https://github.com/poo29004/demo-evento-mouse).
-- A avaliação considerará critérios de legibilidade, clareza e organização do código
+- A avaliação considerará critérios de legibilidade, clareza e organização do código.
 
 ---
 ## Descrição
