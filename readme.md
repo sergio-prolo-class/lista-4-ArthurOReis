@@ -6,7 +6,6 @@
 ---
 ## <span style="color: #3480eb;">(i) Informações iniciais</span>
 
-<span style="color: #3480eb;">
 - A implementação das soluções deve seguir os princípios da Programação Orientada a Objetos, com
 especial atenção à identificação correta de classes, atributos, métodos, associações (agregação, composição, dependência) e herança.
 - O repositório fornecido contém um projeto Gradle exemplo. Utilize esse projeto para detalhar a sua solução para o problema proposto.
@@ -14,7 +13,6 @@ especial atenção à identificação correta de classes, atributos, métodos, a
 - Organize seus códigos-fonte em pacotes temáticos para fazer bom uso dos membros protegidos.
 - Para um exemplo de como capturar eventos do mouse e teclado usando a interface DrawListener, veja esse [repositório](https://github.com/poo29004/demo-evento-mouse).
 - A avaliação considerará critérios de legibilidade, clareza e organização do código
-</span>
 
 ---
 ## Descrição
