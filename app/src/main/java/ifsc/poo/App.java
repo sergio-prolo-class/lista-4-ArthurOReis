@@ -4,21 +4,49 @@
 package ifsc.poo;
 
 import edu.princeton.cs.algs4.Draw;
+import edu.princeton.cs.algs4.DrawListener;
 
-public class App {
+public class App implements DrawListener {
+    private Draw draw;
+
+    public App() {
+        // Cria a janela de desenho
+        draw = new Draw();
+        draw.setTitle("Aplicativo de Desenho Vetorial");
+        draw.addListener(this);
+    }
+
     public static void main(String[] args) {
-        // Cria uma nova instância de Draw
-        Draw draw = new Draw();
+        new App(); // Inicializa a aplicação
+    }
 
-        // Define o título da janela
-        draw.setTitle("Exemplo de Desenho com Draw");
+    @Override
+    public void mousePressed(double x, double y) {
+        System.out.println("Mouse pressionado em: (" + x + ", " + y + ")");
+    }
 
-        // Desenha um círculo no centro da tela
-        draw.setPenColor(Draw.RED);
-        draw.filledCircle(0.5, 0.5, 0.1);
+    @Override
+    public void mouseDragged(double x, double y) {
+        System.out.println("Mouse arrastado em: (" + x + ", " + y + ")");
+    }
 
-        // Desenha um quadrado
-        draw.setPenColor(Draw.BLUE);
-        draw.filledSquare(0.7, 0.7, 0.1);
+    @Override
+    public void mouseReleased(double x, double y) {
+        System.out.println("Mouse liberado em: (" + x + ", " + y + ")");
+    }
+
+    @Override
+    public void keyTyped(char c) {
+        System.out.println("Tecla pressionada: " + c);
+    }
+
+    @Override
+    public void keyPressed(int keyCode) {
+        System.out.println("Tecla pressionada (código): " + keyCode);
+    }
+
+    @Override
+    public void keyReleased(int keyCode) {
+        System.out.println("Tecla liberada (código): " + keyCode);
     }
 }
