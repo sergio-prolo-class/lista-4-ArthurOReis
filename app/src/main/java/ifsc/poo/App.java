@@ -3,12 +3,22 @@
  */
 package ifsc.poo;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import edu.princeton.cs.algs4.Draw;
 
+public class App {
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        // Cria uma nova instância de Draw
+        Draw draw = new Draw();
+
+        // Define o título da janela
+        draw.setTitle("Exemplo de Desenho com Draw");
+
+        // Desenha um círculo no centro da tela
+        draw.setPenColor(Draw.RED);
+        draw.filledCircle(0.5, 0.5, 0.1);
+
+        // Desenha um quadrado
+        draw.setPenColor(Draw.BLUE);
+        draw.filledSquare(0.7, 0.7, 0.1);
     }
 }
