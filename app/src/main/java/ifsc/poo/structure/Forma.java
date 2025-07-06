@@ -1,8 +1,10 @@
 package ifsc.poo.structure;
 
+import edu.princeton.cs.algs4.Draw;
+
 import java.awt.Color;
 
-public abstract class Forma {
+public abstract class Forma implements Desenhavel{
     private Color cor;
     private boolean preenchida;
     private double tamanho;
@@ -36,4 +38,7 @@ public abstract class Forma {
     public void setTamanho(double tamanho) {
         this.tamanho = tamanho;
     }
+
+    @Override
+    public abstract void desenhar(Draw draw);
 }
