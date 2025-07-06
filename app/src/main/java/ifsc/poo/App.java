@@ -5,57 +5,47 @@ package ifsc.poo;
 
 import edu.princeton.cs.algs4.Draw;
 import edu.princeton.cs.algs4.DrawListener;
+import ifsc.poo.structure.MouseHandler;
+import ifsc.poo.structure.models.Circulo;
+import ifsc.poo.structure.models.Quadrado;
+import ifsc.poo.structure.models.Hexagono;
+import ifsc.poo.structure.models.Trapezio;
+import java.awt.Color;
 
-public class App implements DrawListener /* Usando polimorfismo através da implementação da interface DrawListener */ {
-    private Draw draw;
+public class App implements DrawListener {
+    private MouseHandler mouseHandler;
 
     public App() {
-        draw = new Draw();
-        draw.setTitle("Aplicativo de Desenho Vetorial");
+        Draw draw = new Draw();
         draw.addListener(this);
-    }
-
-    public static void main(String[] args) {
-        new App();
+        mouseHandler = new MouseHandler(draw);
     }
 
     @Override
     public void mousePressed(double x, double y) {
-        System.out.println("Mouse pressionado em: (" + x + ", " + y + ")");
-    }
-
-    @Override
-    public void mouseDragged(double x, double y) {
-        System.out.println("Mouse arrastado em: (" + x + ", " + y + ")");
-    }
-
-    @Override
-    public void mouseReleased(double x, double y) {
-        System.out.println("Mouse liberado em: (" + x + ", " + y + ")");
+        mouseHandler.desenharNaPosicao(x, y);
     }
 
     @Override
     public void keyTyped(char c) {
-        System.out.println("Tecla pressionada: " + c);
+        mouseHandler.processarTecla((int) c);
     }
 
     @Override
     public void keyPressed(int keyCode) {
-        System.out.println("Tecla pressionada (código): " + keyCode);
-        switch (keyCode){
-            case 112: // F1
-                System.out.println("Círculo");
-                break;
-            case 113: // F2
-                System.out.println("Quadrado");
-                break;
-            case 114: // F3
-                System.out.println("Hexágono");
-                break;
-            case 115: // F4
-                System.out.println("Trapézio");
-                break;
-        }
+        mouseHandler.processarTecla(keyCode);
     }
 
+    @Override
+    public void keyReleased(int keyCode) {}
+
+    @Override
+    public void mouseDragged(double x, double y) {}
+
+    @Override
+    public void mouseReleased(double x, double y) {}
+
+    public static void main(String[] args) {
+        new App();
+    }
 }

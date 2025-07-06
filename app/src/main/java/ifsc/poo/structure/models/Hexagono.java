@@ -4,24 +4,28 @@ import ifsc.poo.structure.Forma;
 import ifsc.poo.structure.Desenhavel;
 import edu.princeton.cs.algs4.Draw;
 
+import java.awt.*;
+
 public class Hexagono extends Forma implements Desenhavel {
-    public Hexagono(java.awt.Color cor, boolean preenchida, double tamanho) {
-        super(cor, preenchida, tamanho);
+
+    public Hexagono(Color cor, boolean preenchida, double tamanho, double x, double y) {
+        super(cor, preenchida, tamanho, x, y);
     }
 
     @Override
     public void desenhar(Draw draw) {
         draw.setPenColor(getCor());
-        double[] x = new double[6];
-        double[] y = new double[6];
+        double angle = Math.PI / 3;
+        double[] xs = new double[6];
+        double[] ys = new double[6];
         for (int i = 0; i < 6; i++) {
-            x[i] = 0.5 + getTamanho() * Math.cos(Math.PI / 3 * i);
-            y[i] = 0.5 + getTamanho() * Math.sin(Math.PI / 3 * i);
+            xs[i] = getX() + getTamanho() * Math.cos(angle * i);
+            ys[i] = getY() + getTamanho() * Math.sin(angle * i);
         }
         if (isPreenchida()) {
-            draw.filledPolygon(x, y);
+            draw.filledPolygon(xs, ys);
         } else {
-            draw.polygon(x, y);
+            draw.polygon(xs, ys);
         }
     }
 }

@@ -4,21 +4,21 @@ import ifsc.poo.structure.Forma;
 import ifsc.poo.structure.Desenhavel;
 import edu.princeton.cs.algs4.Draw;
 
+import java.awt.*;
+
 public class Quadrado extends Forma implements Desenhavel {
-    public Quadrado(java.awt.Color cor, boolean preenchida, double tamanho) {
-        super(cor, preenchida, tamanho);
+
+    public Quadrado(Color cor, boolean preenchida, double tamanho, double x, double y) {
+        super(cor, preenchida, tamanho, x, y);
     }
 
     @Override
     public void desenhar(Draw draw) {
         draw.setPenColor(getCor());
-        double half = getTamanho() / 2.0;
-        double[] x = {0.5 - half, 0.5 + half, 0.5 + half, 0.5 - half};
-        double[] y = {0.5 - half, 0.5 - half, 0.5 + half, 0.5 + half};
         if (isPreenchida()) {
-            draw.filledPolygon(x, y);
+            draw.filledSquare(getX(), getY(), getTamanho());
         } else {
-            draw.polygon(x, y);
+            draw.square(getX(), getY(), getTamanho());
         }
     }
 }

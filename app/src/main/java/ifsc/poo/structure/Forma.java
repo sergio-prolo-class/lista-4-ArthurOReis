@@ -8,11 +8,15 @@ public abstract class Forma implements Desenhavel{
     private Color cor;
     private boolean preenchida;
     private double tamanho;
+    private double x;
+    private double y;
 
-    public Forma(Color cor, boolean preenchida, double tamanho) {
+    public Forma(Color cor, boolean preenchida, double tamanho, double x, double y) {
         this.cor = cor;
         this.preenchida = preenchida;
         this.tamanho = tamanho;
+        this.x = x;
+        this.y = y;
     }
 
     public Color getCor() {
@@ -37,6 +41,22 @@ public abstract class Forma implements Desenhavel{
 
     public void setTamanho(double tamanho) {
         this.tamanho = tamanho;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
     }
 
     @Override
