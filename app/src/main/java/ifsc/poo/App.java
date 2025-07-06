@@ -36,15 +36,6 @@ public class App implements DrawListener {
         mouseHandler.processarTecla(keyCode);
     }
 
-    @Override
-    public void keyReleased(int keyCode) {}
-
-    @Override
-    public void mouseDragged(double x, double y) {}
-
-    @Override
-    public void mouseReleased(double x, double y) {}
-
     public static void main(String[] args) {
         new App();
     }

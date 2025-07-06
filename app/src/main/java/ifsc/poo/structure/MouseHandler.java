@@ -17,6 +17,13 @@ public class MouseHandler {
     private double tamanhoAtual = 0.1;
     private TipoForma tipoForma = TipoForma.CIRCULO;
 
+    private static final Color[] CORES = {
+            Color.RED,      // F5
+            Color.BLUE,     // F6
+            Color.GREEN,    // F7
+            Color.YELLOW    // F8
+    };
+
     public MouseHandler(Draw draw) {
         this.draw = draw;
     }
@@ -24,20 +31,36 @@ public class MouseHandler {
     public void processarTecla(int keyCode) {
         switch (keyCode) {
             case 112: // F1
-                tipoForma = TipoForma.CIRCULO;
-                System.out.println("Forma selecionada: Círculo");
+                this.tipoForma = TipoForma.CIRCULO;
+                System.out.println("Figura: Círculo");
                 break;
             case 113: // F2
-                tipoForma = TipoForma.QUADRADO;
-                System.out.println("Forma selecionada: Quadrado");
+                this.tipoForma = TipoForma.QUADRADO;
+                System.out.println("Figura: Quadrado");
                 break;
             case 114: // F3
-                tipoForma = TipoForma.HEXAGONO;
-                System.out.println("Forma selecionada: Hexágono");
+                this.tipoForma = TipoForma.HEXAGONO;
+                System.out.println("Figura: Hexágono");
                 break;
             case 115: // F4
-                tipoForma = TipoForma.TRAPEZIO;
-                System.out.println("Forma selecionada: Trapézio");
+                this.tipoForma = TipoForma.TRAPEZIO;
+                System.out.println("Figura: Trapézio");
+                break;
+            case 116: // F5
+                this.corAtual = CORES[0];
+                System.out.println("Cor selecionada: Vermelho");
+                break;
+            case 117: // F6
+                this.corAtual = CORES[1];
+                System.out.println("Cor selecionada: Azul");
+                break;
+            case 118: // F7
+                this.corAtual = CORES[2];
+                System.out.println("Cor selecionada: Verde");
+                break;
+            case 119: // F8
+                this.corAtual = CORES[3];
+                System.out.println("Cor selecionada: Amarelo");
                 break;
             case 67: // 'C'
             case 99: // 'c'
@@ -52,21 +75,20 @@ public class MouseHandler {
         Forma forma = null;
         switch (tipoForma) {
             case CIRCULO:
-                forma = new Circulo(corAtual, preenchida, tamanhoAtual, x, y);
+                forma = new Circulo(this.corAtual, this.preenchida, this.tamanhoAtual, x, y);
                 break;
             case QUADRADO:
-                forma = new Quadrado(corAtual, preenchida, tamanhoAtual, x, y);
+                forma = new Quadrado(this.corAtual, this.preenchida, this.tamanhoAtual, x, y);
                 break;
             case HEXAGONO:
-                forma = new Hexagono(corAtual, preenchida, tamanhoAtual, x, y);
+                forma = new Hexagono(this.corAtual, this.preenchida, this.tamanhoAtual, x, y);
                 break;
             case TRAPEZIO:
-                forma = new Trapezio(corAtual, preenchida, tamanhoAtual, x, y);
+                forma = new Trapezio(this.corAtual, this.preenchida, this.tamanhoAtual, x, y);
                 break;
         }
         if (forma != null) {
             forma.desenhar(draw);
-            System.out.println("Desenhou " + tipoForma + " em (" + x + ", " + y + ")");
         }
     }
 
