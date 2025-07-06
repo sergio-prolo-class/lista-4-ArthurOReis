@@ -15,10 +15,8 @@ public class Quadrado extends Forma implements Desenhavel {
     @Override
     public void desenhar(Draw draw) {
         draw.setPenColor(getCor());
-        if (isPreenchida()) {
-            draw.filledSquare(getX(), getY(), getTamanho());
-        } else {
-            draw.square(getX(), getY(), getTamanho());
-        }
+        draw.filledSquare(getX(), getY(), getTamanho());
+        draw.setPenColor(Color.BLACK);
+        draw.square(getX(), getY(), getTamanho());
     }
 }

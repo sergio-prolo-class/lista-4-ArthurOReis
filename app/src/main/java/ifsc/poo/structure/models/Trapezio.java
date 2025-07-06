@@ -14,28 +14,26 @@ public class Trapezio extends Forma implements Desenhavel {
 
     @Override
     public void desenhar(Draw draw) {
-        draw.setPenColor(getCor());
         double baseMaior = getTamanho() * 2;
         double baseMenor = getTamanho();
         double altura = getTamanho();
 
         double[] xs = {
-                getX() - baseMaior / 2, // canto inferior esquerdo
-                getX() + baseMaior / 2, // canto inferior direito
-                getX() + baseMenor / 2, // canto superior direito
-                getX() - baseMenor / 2  // canto superior esquerdo
+                getX() - baseMaior / 2,
+                getX() + baseMaior / 2,
+                getX() + baseMenor / 2,
+                getX() - baseMenor / 2
         };
         double[] ys = {
-                getY() - altura / 2, // inferior
-                getY() - altura / 2, // inferior
-                getY() + altura / 2, // superior
-                getY() + altura / 2  // superior
+                getY() - altura / 2,
+                getY() - altura / 2,
+                getY() + altura / 2,
+                getY() + altura / 2
         };
 
-        if (isPreenchida()) {
-            draw.filledPolygon(xs, ys);
-        } else {
-            draw.polygon(xs, ys);
-        }
+        draw.setPenColor(getCor());
+        draw.filledPolygon(xs, ys);
+        draw.setPenColor(Color.BLACK);
+        draw.polygon(xs, ys);
     }
 }

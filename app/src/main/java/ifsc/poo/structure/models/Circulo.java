@@ -13,10 +13,8 @@ public class Circulo extends Forma {
     @Override
     public void desenhar(Draw draw) {
         draw.setPenColor(getCor());
-        if (isPreenchida()) {
-            draw.filledCircle(getX(), getY(), getTamanho());
-        } else {
-            draw.circle(getX(), getY(), getTamanho());
-        }
+        draw.filledCircle(getX(), getY(), getTamanho());
+        draw.setPenColor(Color.BLACK);
+        draw.circle(getX(), getY(), getTamanho());
     }
 }

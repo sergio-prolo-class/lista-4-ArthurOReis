@@ -14,7 +14,6 @@ public class Hexagono extends Forma implements Desenhavel {
 
     @Override
     public void desenhar(Draw draw) {
-        draw.setPenColor(getCor());
         double angle = Math.PI / 3;
         double[] xs = new double[6];
         double[] ys = new double[6];
@@ -22,10 +21,9 @@ public class Hexagono extends Forma implements Desenhavel {
             xs[i] = getX() + getTamanho() * Math.cos(angle * i);
             ys[i] = getY() + getTamanho() * Math.sin(angle * i);
         }
-        if (isPreenchida()) {
-            draw.filledPolygon(xs, ys);
-        } else {
-            draw.polygon(xs, ys);
-        }
+        draw.setPenColor(getCor());
+        draw.filledPolygon(xs, ys);
+        draw.setPenColor(Color.BLACK);
+        draw.polygon(xs, ys);
     }
 }
