@@ -40,3 +40,83 @@ _Figura 1: Captura de tela durante execução da aplicação de desenho vetorial
     5. **Movimento**: Usando as setas do teclado, o usuário pode mover todas as figuras desenhadas nas quatro direções cardinais.
     6. **Limpeza**: Usando a tecla ‘C’, o usuário pode limpar todos os desenhos da tela.
     7. **Processar**: Usando a tecla ‘P’, o usuário pode receber as seguintes informações sobre as figuras atualmente impressas na tela através do terminal: número total, soma perímetros e área média.
+
+---
+
+## Mermaid
+```mermaid
+classDiagram
+    class Desenhavel {
+        <<Interface>>
+        + desenhar(Draw draw)
+    }
+
+    class Forma {
+        <<Classe Abstrata>>
+        - cor: Color
+        - preenchida: boolean
+        - tamanho: double
+        Forma(cor, preenchida, tamanho)
+        + getCor()
+        + isPreenchida()
+        + getTamanho()
+        + desenhar(Draw draw)
+    }
+
+    Forma <|-- Circulo
+    Forma <|-- Quadrado
+    Forma <|-- Hexagono
+    Forma <|-- Trapezio
+
+    class Circulo {
+        <<Classe>>
+        + desenhar(Draw draw)
+    }
+
+    class Quadrado {
+        <<Classe>>
+        + desenhar(Draw draw)
+    }
+
+    class Hexagono {
+        <<Classe>>
+        + desenhar(Draw draw)
+    }
+
+    class Trapezio {
+        <<Classe>>
+        + desenhar(Draw draw)
+    }
+
+    Forma ..|> Desenhavel
+
+    class MouseHandler {
+        <<Classe>>
+        - draw: Draw
+        - corAtual: Color
+        - preenchida: boolean
+        - tamanhoAtual: double
+        - formaAtual: Forma
+        - formas: List<Forma>
+        + processarTecla(keyCode)
+        + desenharForma(x, y)
+        + limparTela()
+        + moverFormas(dx, dy)
+    }
+
+    class App {
+        <<Classe>>
+        - draw: Draw
+        - mouseHandler: MouseHandler
+        + main(args)
+        + mousePressed(x, y)
+        + mouseDragged(x, y)
+        + mouseReleased(x, y)
+        + keyTyped(c)
+        + keyPressed(keyCode)
+    }
+
+    App --> MouseHandler
+    MouseHandler --> Forma
+    Forma --> Desenhavel
+```
