@@ -16,6 +16,7 @@ public class MouseHandler {
     private boolean preenchida = false;
     private double tamanhoAtual = 0.1;
     private TipoForma tipoForma = TipoForma.CIRCULO;
+    private boolean bordaPreta;
 
     private static final Color[] CORES = {
             Color.RED,      // F5
@@ -26,6 +27,7 @@ public class MouseHandler {
 
     public MouseHandler(Draw draw) {
         this.draw = draw;
+        this.bordaPreta = true; // Inicializa com borda preta
     }
 
     public void processarTecla(int keyCode) {
@@ -62,7 +64,10 @@ public class MouseHandler {
                 this.corAtual = CORES[3];
                 System.out.println("Cor selecionada: Amarelo");
                 break;
-            case 67: // 'C'
+            case 102: // 'f'
+                this.bordaPreta = !this.bordaPreta;
+                System.out.println("Borda: " + (this.bordaPreta ? "Preta" : "Colorida"));
+                break;
             case 99: // 'c'
                 limparTela();
                 break;
@@ -88,6 +93,7 @@ public class MouseHandler {
                 break;
         }
         if (forma != null) {
+            forma.setbordaPreta(bordaPreta);
             forma.desenhar(draw);
         }
     }

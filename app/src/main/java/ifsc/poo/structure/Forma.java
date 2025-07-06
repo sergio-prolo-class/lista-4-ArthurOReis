@@ -6,14 +6,14 @@ import java.awt.Color;
 
 public abstract class Forma implements Desenhavel{
     private Color cor;
-    private boolean bordapreenchida;
+    private boolean bordaPreta;
     private double tamanho;
     private double x;
     private double y;
 
-    public Forma(Color cor, boolean bordapreenchida, double tamanho, double x, double y) {
+    public Forma(Color cor, boolean bordaPreta, double tamanho, double x, double y) {
         this.cor = cor;
-        this.bordapreenchida = bordapreenchida;
+        this.bordaPreta = bordaPreta;
         this.tamanho = tamanho;
         this.x = x;
         this.y = y;
@@ -27,12 +27,12 @@ public abstract class Forma implements Desenhavel{
         this.cor = cor;
     }
 
-    public boolean isBordapreenchida() {
-        return bordapreenchida;
+    public boolean isbordaPreta() {
+        return bordaPreta;
     }
 
-    public void Bordapreenchida(boolean bordapreenchida) {
-        this.bordapreenchida = bordapreenchida;
+    public void setbordaPreta(boolean bordaPreta) {
+        this.bordaPreta = bordaPreta;
     }
 
     public double getTamanho() {

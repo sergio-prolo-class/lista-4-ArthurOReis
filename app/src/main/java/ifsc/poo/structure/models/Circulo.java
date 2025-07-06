@@ -6,15 +6,15 @@ import java.awt.Color;
 
 public class Circulo extends Forma {
 
-    public Circulo(Color cor, boolean preenchida, double tamanho, double x, double y) {
-        super(cor, preenchida, tamanho, x, y);
+    public Circulo(Color cor, boolean bordaPreta, double tamanho, double x, double y) {
+        super(cor, bordaPreta, tamanho, x, y);
     }
 
     @Override
     public void desenhar(Draw draw) {
         draw.setPenColor(getCor());
         draw.filledCircle(getX(), getY(), getTamanho());
-        draw.setPenColor(Color.BLACK);
+        draw.setPenColor(isbordaPreta() ? Color.BLACK : getCor());
         draw.circle(getX(), getY(), getTamanho());
     }
 }
