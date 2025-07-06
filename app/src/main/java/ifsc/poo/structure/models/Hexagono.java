@@ -11,6 +11,17 @@ public class Hexagono extends Forma implements Desenhavel {
 
     @Override
     public void desenhar(Draw draw) {
-
+        draw.setPenColor(getCor());
+        double[] x = new double[6];
+        double[] y = new double[6];
+        for (int i = 0; i < 6; i++) {
+            x[i] = 0.5 + getTamanho() * Math.cos(Math.PI / 3 * i);
+            y[i] = 0.5 + getTamanho() * Math.sin(Math.PI / 3 * i);
+        }
+        if (isPreenchida()) {
+            draw.filledPolygon(x, y);
+        } else {
+            draw.polygon(x, y);
+        }
     }
 }
