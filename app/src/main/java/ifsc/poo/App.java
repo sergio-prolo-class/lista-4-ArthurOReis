@@ -6,18 +6,17 @@ package ifsc.poo;
 import edu.princeton.cs.algs4.Draw;
 import edu.princeton.cs.algs4.DrawListener;
 
-public class App implements DrawListener {
+public class App implements DrawListener /* Usando polimorfismo através da implementação da interface DrawListener */ {
     private Draw draw;
 
     public App() {
-        // Cria a janela de desenho
         draw = new Draw();
         draw.setTitle("Aplicativo de Desenho Vetorial");
         draw.addListener(this);
     }
 
     public static void main(String[] args) {
-        new App(); // Inicializa a aplicação
+        new App();
     }
 
     @Override
@@ -43,10 +42,20 @@ public class App implements DrawListener {
     @Override
     public void keyPressed(int keyCode) {
         System.out.println("Tecla pressionada (código): " + keyCode);
+        switch (keyCode){
+            case 112: // F1
+                System.out.println("Círculo");
+                break;
+            case 113: // F2
+                System.out.println("Quadrado");
+                break;
+            case 114: // F3
+                System.out.println("Hexágono");
+                break;
+            case 115: // F4
+                System.out.println("Trapézio");
+                break;
+        }
     }
 
-    @Override
-    public void keyReleased(int keyCode) {
-        System.out.println("Tecla liberada (código): " + keyCode);
-    }
 }
