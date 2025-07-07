@@ -17,4 +17,14 @@ public class Circulo extends Forma {
         draw.setPenColor(isbordaPreta() ? Color.BLACK : getCor());
         draw.circle(getX(), getY(), getTamanho());
     }
+
+    @Override
+    public double getPerimetro() {
+        return 2 * Math.PI * getTamanho();
+    }
+
+    @Override
+    public double getArea() {
+        return Math.PI * getTamanho() * getTamanho();
+    }
 }

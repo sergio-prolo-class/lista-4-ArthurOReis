@@ -61,4 +61,7 @@ public abstract class Forma implements Desenhavel{
 
     @Override
     public abstract void desenhar(Draw draw);
+
+    public abstract double getPerimetro();
+    public abstract double getArea();
 }

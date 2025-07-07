@@ -28,7 +28,7 @@ public class App implements DrawListener {
 
     @Override
     public void keyTyped(char c) {
-        if (c == 'q' || c == 'w') {
+        if (c == 'q' || c == 'w' || c == 'p') {
             c = Character.toUpperCase(c);
         }
         mouseHandler.processarTecla((int) c);

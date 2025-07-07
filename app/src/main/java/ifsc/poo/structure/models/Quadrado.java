@@ -19,4 +19,14 @@ public class Quadrado extends Forma implements Desenhavel {
         draw.setPenColor(isbordaPreta() ? Color.BLACK : getCor());
         draw.square(getX(), getY(), getTamanho());
     }
+
+    @Override
+    public double getPerimetro() {
+        return 4 * getTamanho();
+    }
+
+    @Override
+    public double getArea() {
+        return getTamanho() * getTamanho();
+    }
 }

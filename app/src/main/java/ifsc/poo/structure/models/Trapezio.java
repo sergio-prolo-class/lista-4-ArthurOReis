@@ -36,4 +36,21 @@ public class Trapezio extends Forma implements Desenhavel {
         draw.setPenColor(isbordaPreta() ? Color.BLACK : getCor());
         draw.polygon(xs, ys);
     }
+
+    @Override
+    public double getPerimetro() {
+        double baseMaior = getTamanho() * 2;
+        double baseMenor = getTamanho();
+        double altura = getTamanho();
+        double lado = Math.sqrt(Math.pow((baseMaior - baseMenor) / 2, 2) + altura * altura);
+        return baseMaior + baseMenor + 2 * lado;
+    }
+
+    @Override
+    public double getArea() {
+        double baseMaior = getTamanho() * 2;
+        double baseMenor = getTamanho();
+        double altura = getTamanho();
+        return ((baseMaior + baseMenor) * altura) / 2;
+    }
 }

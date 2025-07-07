@@ -26,4 +26,14 @@ public class Hexagono extends Forma implements Desenhavel {
         draw.setPenColor(isbordaPreta() ? Color.BLACK : getCor());
         draw.polygon(xs, ys);
     }
+
+    @Override
+    public double getPerimetro() {
+        return 4 * getTamanho();
+    }
+
+    @Override
+    public double getArea() {
+        return getTamanho() * getTamanho();
+    }
 }
