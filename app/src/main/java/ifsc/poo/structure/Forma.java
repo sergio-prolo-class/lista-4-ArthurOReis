@@ -4,7 +4,7 @@ import edu.princeton.cs.algs4.Draw;
 
 import java.awt.Color;
 
-public abstract class Forma implements Desenhavel{
+public abstract class Forma implements Desenhavel { // Implementando polimorfismo e implementando a interface Desenhavel, e também implementando Forma como uma classe abstrata para outras classes herdarem
     private Color cor;
     private boolean bordaPreta;
     private double tamanho;
@@ -60,8 +60,8 @@ public abstract class Forma implements Desenhavel{
     }
 
     @Override
-    public abstract void desenhar(Draw draw);
+    public abstract void desenhar(Draw draw); // Sobrescrevendo o método desenhar da interface Desenhavel, que deve ser implementado por todas as formas
 
-    public abstract double getPerimetro();
-    public abstract double getArea();
+    public abstract double getPerimetro(); // Método abstrato para calcular o perímetro da forma, que deve ser implementado por cada forma específica
+    public abstract double getArea(); // Método abstrato para calcular a área da forma, que deve ser implementado por cada forma específica
 }

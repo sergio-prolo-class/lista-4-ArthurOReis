@@ -6,14 +6,9 @@ package ifsc.poo;
 import edu.princeton.cs.algs4.Draw;
 import edu.princeton.cs.algs4.DrawListener;
 import ifsc.poo.structure.MouseHandler;
-import ifsc.poo.structure.models.Circulo;
-import ifsc.poo.structure.models.Quadrado;
-import ifsc.poo.structure.models.Hexagono;
-import ifsc.poo.structure.models.Trapezio;
-import java.awt.Color;
 
-public class App implements DrawListener {
-    private MouseHandler mouseHandler;
+public class App implements DrawListener { // Implementando polimorfismo e implementando a interface DrawListener
+    private final MouseHandler mouseHandler;
 
     public App() {
         Draw draw = new Draw();
@@ -22,12 +17,12 @@ public class App implements DrawListener {
     }
 
     @Override
-    public void mousePressed(double x, double y) {
+    public void mousePressed(double x, double y) { // Sobrescrevendo o método mousePressed da interface DrawListener
         mouseHandler.desenharNaPosicao(x, y);
     }
 
     @Override
-    public void keyTyped(char c) {
+    public void keyTyped(char c) { // Sobrescrevendo o método keyTyped da interface DrawListener
         if (c == 'q' || c == 'w' || c == 'p') {
             c = Character.toUpperCase(c);
         }
@@ -35,7 +30,7 @@ public class App implements DrawListener {
     }
 
     @Override
-    public void keyPressed(int keyCode) {
+    public void keyPressed(int keyCode) { // Sobrescrevendo o método keyPressed da interface DrawListener
         mouseHandler.processarTecla(keyCode);
     }
 

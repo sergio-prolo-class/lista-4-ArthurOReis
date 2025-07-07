@@ -1,19 +1,18 @@
 package ifsc.poo.structure.models;
 
 import ifsc.poo.structure.Forma;
-import ifsc.poo.structure.Desenhavel;
 import edu.princeton.cs.algs4.Draw;
 
 import java.awt.*;
 
-public class Trapezio extends Forma implements Desenhavel {
+public class Trapezio extends Forma { // Classe Trapezio que herda de Forma, implementando a interface Desenhavel
 
     public Trapezio(Color cor, boolean preenchida, double tamanho, double x, double y) {
         super(cor, preenchida, tamanho, x, y);
     }
 
     @Override
-    public void desenhar(Draw draw) {
+    public void desenhar(Draw draw) { // Sobrescrevendo método desenhar de Forma para trapézio
         double baseMaior = getTamanho() * 2;
         double baseMenor = getTamanho();
         double altura = getTamanho();
@@ -38,7 +37,7 @@ public class Trapezio extends Forma implements Desenhavel {
     }
 
     @Override
-    public double getPerimetro() {
+    public double getPerimetro() { // Sobrescrevendo método getPerimetro de Forma para trapézio
         double baseMaior = getTamanho() * 2;
         double baseMenor = getTamanho();
         double altura = getTamanho();
@@ -47,7 +46,7 @@ public class Trapezio extends Forma implements Desenhavel {
     }
 
     @Override
-    public double getArea() {
+    public double getArea() { // Sobrescrevendo método getArea de Forma para trapézio
         double baseMaior = getTamanho() * 2;
         double baseMenor = getTamanho();
         double altura = getTamanho();
