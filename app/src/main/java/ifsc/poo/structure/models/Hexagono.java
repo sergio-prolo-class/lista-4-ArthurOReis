@@ -23,7 +23,7 @@ public class Hexagono extends Forma implements Desenhavel {
         }
         draw.setPenColor(getCor());
         draw.filledPolygon(xs, ys);
-        draw.setPenColor(Color.BLACK);
+        draw.setPenColor(isbordaPreta() ? Color.BLACK : getCor());
         draw.polygon(xs, ys);
     }
 }
