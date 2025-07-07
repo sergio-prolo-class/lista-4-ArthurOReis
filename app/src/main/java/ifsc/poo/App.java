@@ -28,6 +28,9 @@ public class App implements DrawListener {
 
     @Override
     public void keyTyped(char c) {
+        if (c == 'q' || c == 'w') {
+            c = Character.toUpperCase(c);
+        }
         mouseHandler.processarTecla((int) c);
     }
 
@@ -35,6 +38,7 @@ public class App implements DrawListener {
     public void keyPressed(int keyCode) {
         mouseHandler.processarTecla(keyCode);
     }
+
 
     public static void main(String[] args) {
         new App();
