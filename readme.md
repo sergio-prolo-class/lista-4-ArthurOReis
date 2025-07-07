@@ -46,77 +46,92 @@ _Figura 1: Captura de tela durante execução da aplicação de desenho vetorial
 ## Mermaid
 ```mermaid
 classDiagram
-    class Desenhavel {
-        <<Interface>>
-        + desenhar(Draw draw)
-    }
+  class Desenhavel {
+    <<Interface>>
+    + desenhar(Draw draw)
+  }
 
-    class Forma {
-        <<Classe Abstrata>>
-        - cor: Color
-        - preenchida: boolean
-        - tamanho: double
-        Forma(cor, preenchida, tamanho)
-        + getCor()
-        + isPreenchida()
-        + getTamanho()
-        + desenhar(Draw draw)
-    }
+  class Forma {
+<<Classe Abstrata>>
+- cor: Color
+- bordaPreta: boolean
+- tamanho: double
+- x: double
+- y: double
+Forma(cor, bordaPreta, tamanho, x, y)
++ getCor()
++ setCor(cor)
++ isbordaPreta()
++ setbordaPreta(bordaPreta)
++ getTamanho()
++ setTamanho(tamanho)
++ getX()
++ setX(x)
++ getY()
++ setY(y)
++ desenhar(Draw draw)
++ getPerimetro()
++ getArea()
+}
 
-    Forma <|-- Circulo
-    Forma <|-- Quadrado
-    Forma <|-- Hexagono
-    Forma <|-- Trapezio
+Forma <|-- Circulo
+Forma <|-- Quadrado
+Forma <|-- Hexagono
+Forma <|-- Trapezio
 
-    class Circulo {
-        <<Classe>>
-        + desenhar(Draw draw)
-    }
+class Circulo {
+<<Classe>>
++ desenhar(Draw draw)
++ getPerimetro()
++ getArea()
+}
 
-    class Quadrado {
-        <<Classe>>
-        + desenhar(Draw draw)
-    }
+class Quadrado {
+<<Classe>>
++ desenhar(Draw draw)
++ getPerimetro()
++ getArea()
+}
 
-    class Hexagono {
-        <<Classe>>
-        + desenhar(Draw draw)
-    }
+class Hexagono {
+<<Classe>>
++ desenhar(Draw draw)
++ getPerimetro()
++ getArea()
+}
 
-    class Trapezio {
-        <<Classe>>
-        + desenhar(Draw draw)
-    }
+class Trapezio {
+<<Classe>>
++ desenhar(Draw draw)
++ getPerimetro()
++ getArea()
+}
 
-    Forma ..|> Desenhavel
+Forma ..|> Desenhavel
 
-    class MouseHandler {
-        <<Classe>>
-        - draw: Draw
-        - corAtual: Color
-        - preenchida: boolean
-        - tamanhoAtual: double
-        - formaAtual: Forma
-        - formas: List<Forma>
-        + processarTecla(keyCode)
-        + desenharForma(x, y)
-        + limparTela()
-        + moverFormas(dx, dy)
-    }
+class MouseHandler {
+<<Classe>>
+- draw: Draw
+- corAtual: Color
+- bordaPreta: boolean
+- tamanhoAtual: double
+- tipoForma: TipoForma
+- formas: List~Forma~
++ processarTecla(keyCode)
++ desenharNaPosicao(x, y)
++ limparTela()
+}
 
-    class App {
-        <<Classe>>
-        - draw: Draw
-        - mouseHandler: MouseHandler
-        + main(args)
-        + mousePressed(x, y)
-        + mouseDragged(x, y)
-        + mouseReleased(x, y)
-        + keyTyped(c)
-        + keyPressed(keyCode)
-    }
+class App {
+<<Classe>>
+- mouseHandler: MouseHandler
++ main(args)
++ mousePressed(x, y)
++ keyTyped(c)
++ keyPressed(keyCode)
+}
 
-    App --> MouseHandler
-    MouseHandler --> Forma
-    Forma --> Desenhavel
+App --> MouseHandler
+MouseHandler --> Forma
+Forma --> Desenhavel
 ```
